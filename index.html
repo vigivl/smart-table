@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Smart Table jQuery plugin</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="smart-table.js"></script>
+	<link rel="stylesheet" href="smart-table.css">
+</head>
+<body>
+
+<table class="st-table">
+	<thead>
+	<tr>
+		<th>String</th>
+		<th class="st-number">Num</th>
+		<th class="st-number">Code</th>
+		<th class="st-money">Money</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>Qqqqq</td>
+		<td>1</td>
+		<td>81</td>
+		<td>$12,000.00</td>
+	</tr>
+	<tr>
+		<td>Wwwww</td>
+		<td>2</td>
+		<td>87</td>
+		<td>$100.15</td>
+	</tr>
+	<tr>
+		<td>Eeeee</td>
+		<td>3</td>
+		<td>69</td>
+		<td>-$500</td>
+	</tr>
+	<tr>
+		<td>Rrrrr</td>
+		<td>4</td>
+		<td>82</td>
+		<td>$10,000.20</td>
+	</tr>
+	<tr>
+		<td>Ttttt</td>
+		<td>5</td>
+		<td>84</td>
+		<td>$123.123</td>
+	</tr>
+	<tr>
+		<td>Yyyyy</td>
+		<td>6</td>
+		<td>89</td>
+		<td>-$321.321</td>
+	</tr>
+	</tbody>
+</table>
+<script>
+	$('.st-table').smartTable({
+		paginationPerPage: 3
+	});
+</script>
+</body>
+</html>
