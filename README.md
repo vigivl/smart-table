@@ -14,6 +14,7 @@ Notice: Your table should contain thead and tbody tags.
 * paginationPerPage: number (default 10) - enable pagination if greater than zero.
 
 ### Usage:
+Include JavaScript and CSS in the head:
 ```html
 <head>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -21,11 +22,22 @@ Notice: Your table should contain thead and tbody tags.
 <link rel="stylesheet" href="smart-table.css">
 </head>
 ```
+You can define if column contains numbers or money type data adding CSS class in a 1st row:
+```html
+<thead>
+<tr>
+  <th>Name</th>
+  <th class="st-number">Quantity</th>
+  <th class="st-money">Price</th>
+</tr>
+</thead>
+```
+Include JavaScript in the end of body (before &lt;/body&gt; tag)
 ```javascript
 $(function() {
-	$('.st-table').smartTable({
-	  filterOn: false,
-	  paginationPerPage: 5
-	});
+  $('.st-table').smartTable({
+    filterOn: false,
+	paginationPerPage: 5
+  });
 });
 ```

@@ -57,6 +57,7 @@
 			if (settings.filterOn) {
 				var $filter = $('<tr></tr>').addClass('st-filter-row');
 				var $inputs = [];
+				var type = 'string';
 				$(td_th, $headers).each(function (idx, th) {
 					var $th = $(this);
 					$inputs[idx] = $('<input>');
@@ -64,6 +65,9 @@
 					$inputs[idx].width($th.width());
 					if ($th.hasClass('st-number')) {
 						$inputs[idx].attr('type', 'number');
+					} else {
+						$inputs[idx].attr('type', 'text');
+						type = 'string';
 					}
 					$inputs[idx].keyup(function () {
 						var $rows = $('tr', $tbody);
@@ -72,7 +76,10 @@
 						var search = $iev.val();
 						for (var i = 0, l = $rows.length; i < l; i++) {
 							var $tr = $($rows[i]);
-							if (search.length && $('td:eq(' + idx + ')', $tr).text().toLowerCase().indexOf(search) < 0) {
+							var search_text = $('td:eq(' + idx + ')', $tr).text().toLowerCase();
+							if (search.length && $iev.attr('type') === 'text' && search_text.indexOf(search) < 0) {
+								$tr.addClass('st-hide');
+							} else if (search.length && $iev.attr('type') === 'number' && search_text != search) {
 								$tr.addClass('st-hide');
 							} else {
 								$tr.removeClass('st-hide');
